@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::resource('contact', \App\Http\Controllers\ContactController::class);
+// });
+Route::get('/contact',[ContactUsController::class,'index'])->name('contact.view');

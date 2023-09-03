@@ -10,9 +10,16 @@ use Illuminate\Support\Facades\DB;
 use App;
 
 class ContactUsController extends Controller
-{
+{   
+     public function index()
+    {
+        $contacts= ContactUs::all();
+
+        return view('layouts.view',compact('contacts'));
+    }
     public function addcontact(AddContactRequest $request)
     {
+        
         //   $validatedData = $request->validated();
 
         try {
